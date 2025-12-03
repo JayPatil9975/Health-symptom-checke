@@ -120,7 +120,7 @@ This project demonstrates a **modern low-code + code** architecture:
 | **n8n** | Workflow automation platform acting as the backend. |
 | **Webhook Node** | Exposes a POST endpoint `/symptom-check`. |
 | **Basic LLM Chain** | Builds combined system + user input prompt. |
-| **Google Gemini Chat Model Node** | Calls Gemini 1.5 Flash via Google AI Studio. |
+| **Google Gemini Chat Model Node** | Calls Gemini 2.5 Flash via Google AI Studio. |
 | **Structured Output Parser** | Forces AI output into strict JSON schema. |
 | **Respond to Webhook** | Returns the final JSON back to the frontend. |
 
