@@ -140,7 +140,7 @@ This project demonstrates a **modern low-code + code** architecture:
 # 📂 Folder Structure
 
 Example recommended structure:
-
+```text
 project-root/
 ├── frontend/
 │   ├── index.html
@@ -165,6 +165,7 @@ project-root/
 │   └── n8n_workflow.png
 │
 └── README.md   <-- main documentation file
+```
 
 # 📘 Notes & Setup Instructions
 
