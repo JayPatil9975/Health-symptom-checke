@@ -58,11 +58,11 @@ This project demonstrates a **modern low-code + code** architecture:
 ![Frontend Results Screen](./assets/n8n_workflow.png)
 ---
 
-## 🏗 Architecture
+### 🏗 Architecture
 
 High-level architecture:
 
-```text
+
 +---------------------------+        +-----------------------+
 |     React Frontend        |        |         n8n           |
 |---------------------------|        |-----------------------|
@@ -77,7 +77,7 @@ High-level architecture:
                                                 v
                                        +-------------------+
                                        |  Gemini 2.5 Flash |
-                                       +-------------------+
+                                       +-------------------+ 
 ## 🧩 Full System Breakdown
 
 ### **Frontend**
@@ -156,7 +156,6 @@ High-level architecture:
 
 Example recommended structure:
 
-```text
 project-root/
 ├── frontend/
 │   ├── index.html
@@ -181,3 +180,101 @@ project-root/
 │   └── n8n_workflow.png
 │
 └── README.md   <-- main documentation file
+
+# 📘 Notes & Setup Instructions
+
+## 📁 Project Structure Notes
+
+- **Root README.md** → Explains the entire project.
+- **backend_using_n8n/README.md** → Explains how to import and run the n8n workflow.
+- **frontend/** → Contains the React + Vite + Tailwind client.
+
+---
+
+# 🔧 Backend Setup (n8n)
+
+> Full details are available in: `backend_using_n8n/README.md`  
+> Below is a simplified quick-start guide.
+
+### **1. Install n8n**
+
+You can run n8n using:
+
+- **n8n Cloud**  
+- **Docker**  
+- **npm (local installation)**  
+
+---
+
+### **2. Import the Workflow**
+
+1. Open your **n8n UI**
+2. Click **Create Workflow**
+3. Click the **three dots (⋮)** → **Import from File**
+4. Select:
+
+
+---
+
+### **3. Configure Gemini Credentials**
+
+1. Open the **Google Gemini Chat Model** node  
+2. Click **Add Credential**  
+3. Enter your **Google AI Studio API Key**  
+4. Save  
+
+---
+
+### **4. Activate the Workflow**
+
+1. Click **Save**
+2. Switch workflow status from **Inactive → Active**
+3. Copy the Webhook URL:
+
+#### **Local**
+```bash
+http://localhost:5678/webhook/symptom-check
+```
+
+#### **Hosted n8n**
+```bash
+https://your-n8n-domain.com/webhook/symptom-check
+```
+
+
+Use this URL in the frontend as your `API_URL`.
+
+---
+
+# 💻 Frontend Setup (React + Vite)
+
+### **1. Install Dependencies**
+
+```bash
+cd frontend
+npm install
+```
+
+### **2. Configure API Endpoint**
+
+Open frontend/src/App.jsx and update the API_URL constant at the top:
+
+
+// --- CONFIGURATION ---
+// OLD: const API_URL = "http://localhost:5678/webhook-test/symptom-check";
+// NEW (Example):
+const API_URL = "https://[YOUR-INSTANCE].app.n8n.cloud/webhook-test/symptom-check";
+
+### **3. Start the Dev Server**
+```bash
+npm run dev
+```
+
+### **4. Open the Frontend**
+
+Visit:
+
+👉 http://localhost:5173
+
+Enter symptoms → Click Analyze → View structured results.
+
